@@ -1,0 +1,26 @@
+name: Debug Runner
+
+on:
+  workflow_dispatch
+
+jobs:
+  debug:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check Docker
+        run: |
+          echo "=== Docker Version ==="
+          docker --version
+
+          echo "=== Docker Info ==="
+          docker info
+
+          echo "=== Disk Space ==="
+          df -h
+
+          echo "=== System Info ==="
+          uname -a
+
+          echo "=== Docker Images ==="
+          docker images
