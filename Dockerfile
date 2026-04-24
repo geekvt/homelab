@@ -29,10 +29,7 @@ COPY --from=builder /app . .
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 
 USER nodejs
-
 EXPOSE 3000
-
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
-
 CMD ["node", "server.js"]
